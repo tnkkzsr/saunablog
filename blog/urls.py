@@ -1,11 +1,11 @@
 from django.urls import path
 from django.contrib import admin
-from blog.views import IndexView,PostingView,PostslistView
+from blog.views import IndexView, Index,Detail
 
 urlpatterns = [
     
     path('', IndexView.as_view(), name="index"),
-    path('post/', PostingView.as_view(), name = "post"),
-    path('posts-list/', PostslistView.as_view(), name = "posts-list"),
+    path('detail/<pk>/', Detail.as_view(), name="detail"),
+    path('posts-list/', Index.as_view(), name = "posts-list"),
 
 ]
