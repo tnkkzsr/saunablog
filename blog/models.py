@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+#投稿機能のカテゴリーに関するモデル
 class Category(models.Model):
     name = models.CharField(
         max_length=255,
@@ -11,7 +11,7 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-
+#投稿機能のタグに関するモデル
 class Tag(models.Model):
     name = models.CharField(
         max_length=255,
@@ -23,10 +23,8 @@ class Tag(models.Model):
         return self.name
 from django.urls import reverse_lazy
 
+#投稿機能の本体のモデル
 class Post(models.Model):
-
-   
-
 
     def get_absolute_url(self):
         return reverse_lazy("detail", args=[self.id])
@@ -63,3 +61,10 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+#ここから、サインアップ機能
+from django.db import models
+from django.contrib.auth.models import AbstractUser
+
+#AbstractUserを継承した独自のユーザーモデルを作る

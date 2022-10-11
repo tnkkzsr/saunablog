@@ -3,6 +3,8 @@ from .models import Post
 from django.views.generic.edit import CreateView
 from django.views.generic.edit import UpdateView
 from django.views.generic.edit import DeleteView
+from .forms import SignUpForm
+from django.urls import reverse_lazy
 
 # Create your views here.
 class IndexView(TemplateView):
@@ -23,16 +25,12 @@ class Detail(DetailView):
     model = Post
 
 
-
 # CreateViewは新規作成画面を簡単に作るためのView
 class Create(CreateView):
     model = Post
     
     # 編集対象にするフィールド
     fields = ["title", "body", "category", "tags"]
-
-
-
 
 class Update(UpdateView):
     model = Post
@@ -43,3 +41,8 @@ class Delete(DeleteView):
     
     # 削除したあとに移動する先（トップページ）
     success_url = "/"
+
+class SignUpView(CreateView):
+    form_class = SignUpForm
+    success_url = reverse_lazy('/')
+    template_name = 'registration/signup.html'

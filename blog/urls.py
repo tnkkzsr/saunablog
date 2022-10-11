@@ -19,6 +19,7 @@ urlpatterns = [
     path('delete/<pk>', views.Delete.as_view(), name="delete"), 
     path("login_index/", login_required(index_view), name="login_index"),#ログイン必須のページに飛ぶ
     path('', include("django.contrib.auth.urls")),
+    path("signup/", views.SignUpView.as_view(), name="signup"),
     
 
 ]

@@ -1,5 +1,8 @@
 {% extends "blog/base.html" %}
 {% block main %}
 <h2>ログイン</h2>
+<p>投稿をするためには、会員ページにログインしてください</p>
 {% include "_form.html" with submit_label="ログイン" %}
+<p>新規会員登録は<a href="{% url 'signup' %}">こちら</a>から</p>
+
 {% endblock %}
