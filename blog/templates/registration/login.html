@@ -4,5 +4,6 @@
 <p>投稿をするためには、会員ページにログインしてください</p>
 {% include "_form.html" with submit_label="ログイン" %}
 <p>新規会員登録は<a href="{% url 'signup' %}">こちら</a>から</p>
+<p>パスワードを忘れた場合は<a href="{% url 'password_reset' %}">こちら</a></p>
 
 {% endblock %}
