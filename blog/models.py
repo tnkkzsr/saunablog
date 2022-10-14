@@ -69,4 +69,4 @@ from django.contrib.auth.models import AbstractUser
 
 #AbstractUserを継承した独自のユーザーモデルを作る
 class User(AbstractUser):
-    email = models.EmailField('メールアドレス', unique=True)
+   email = models.EmailField('メールアドレス', unique=True)
